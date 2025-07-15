@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: "https://github.com/Abeehiltz/k8s-argocd"
-    path: apps
+    path: apps/
     targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
@@ -19,8 +19,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  applications:
-    - name: nfs
-      path: apps/nfs.yaml
-    - name: calibre
-      path: manifests/calibre.yaml
