@@ -14,6 +14,8 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: calibre
   syncPolicy:
+    syncOptions:
+      - createNamespace=true
     automated:
       prune: true
       selfHeal: true
