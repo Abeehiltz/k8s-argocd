@@ -14,8 +14,3 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: nfs-provisioner
   syncPolicy:
-    syncOptions:
-      - createNamespace=true
-    automated:
-      enable: false
-      prune: true
