@@ -15,6 +15,6 @@ spec:
     namespace: calibre
   syncPolicy:
     syncOptions:
-      - createNamespace=true
+      - CreateNamespace=true
     automated:
       prune: true

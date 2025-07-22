@@ -22,7 +22,7 @@ spec:
     namespace: ingress-nginx
   syncPolicy:
     syncOptions:
-      - createNamespace=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true

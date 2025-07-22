@@ -22,7 +22,7 @@ spec:
     namespace: authentik
   syncPolicy:
     syncOptions:
-      - createNamespace=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
