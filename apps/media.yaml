@@ -13,8 +13,4 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: media
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
+  syncPolicy: {}

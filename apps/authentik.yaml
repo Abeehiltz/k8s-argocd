@@ -20,9 +20,4 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: authentik
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}

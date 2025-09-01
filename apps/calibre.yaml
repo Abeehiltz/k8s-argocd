@@ -13,8 +13,4 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: calibre
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
+  syncPolicy: {}
