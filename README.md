@@ -18,3 +18,7 @@ data:
 
 **Important**
 Github repository should be configured beforehand with argocd cli if the repository is not public since authentication will be required.
+
+Order:
+- 1password first for secrets
+
