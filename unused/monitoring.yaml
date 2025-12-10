@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: oci://ghcr.io/victoriametrics/helm-charts/victoria-metrics-k8s-stack
-      path: .
-      targetRevision: "0.65.1"
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: "78.4.0"
       helm:
         valueFiles:
           - $back-repo/monitoring/values.yaml
@@ -20,9 +20,4 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
-  syncPolicy:
-    automated:
-      enabled: false
-      prune: true
-    syncOptions:
-      - ServerSideApply=true
+  syncPolicy: {}
