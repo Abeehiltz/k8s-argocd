@@ -13,5 +13,10 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: lldap
-  syncPolicy: {}
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+
+
 
