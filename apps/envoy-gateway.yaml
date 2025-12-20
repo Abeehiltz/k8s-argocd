@@ -5,17 +5,21 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: gateway-helm
-    repoURL: docker.io/envoyproxy
-    targetRevision: v1.6.1
+  sources:
+    - chart: gateway-helm
+      repoURL: docker.io/envoyproxy
+      targetRevision: v1.6.1
+    - repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: networking/envoy-gateway
+      targetRevision: HEAD
+      ref: back-repo
   destination:
     namespace: envoy-gateway-system
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
-    - ServerSideApply=true
+      - CreateNamespace=true
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
