@@ -9,7 +9,10 @@ spec:
   sources:
     - repoURL: https://charts.jetstack.io
       chart: cert-manager
-      targetRevision: "v1.19.1"
+      targetRevision: "v1.19.2"
+      helm:
+        valueFiles:
+          - $back-repo/cert-manager/values.yaml
     - repoURL: https://github.com/Abeehiltz/k8s-deployment
       path: cert-manager
       targetRevision: HEAD
