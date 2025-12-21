@@ -9,6 +9,9 @@ spec:
     - chart: gateway-helm
       repoURL: docker.io/envoyproxy
       targetRevision: v1.6.1
+      helm:
+        valueFiles:
+          - $back-repo/networking/envoy-gateway/values.yaml
     - repoURL: https://github.com/Abeehiltz/k8s-deployment
       path: networking/envoy-gateway
       targetRevision: HEAD
