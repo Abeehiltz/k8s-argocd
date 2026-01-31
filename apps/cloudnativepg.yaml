@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql-cloudnative
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://cloudnative-pg.github.io/charts
+      chart: cloudnative-pg
+      targetRevision: "0.27.0"
+      helm:
+        valueFiles:
+          - $back-repo/postgresql/values.yaml
+    - repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: postgresql
+      targetRevision: HEAD
+      ref: back-repo
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cnpg-system
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+
