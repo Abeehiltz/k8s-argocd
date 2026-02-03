@@ -2,15 +2,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app
+  name: argocd
   namespace: argocd
 spec:
   project: default
   sources:
     - chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
-      targetRevision:
+      targetRevision: 9.4.0
       helm:
+        skipCrds: true
         valueFiles:
           - $back-repo/argocd/values.yaml
     - repoURL: https://github.com/Abeehiltz/k8s-deployment
