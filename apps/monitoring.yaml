@@ -29,12 +29,12 @@ spec:
   ignoreDifferences:
     - group: ""
       kind: Secret
-      name: <fullname>-validation
-      namespace: <k8s-stack-namespace>
+      namespace: monitoring
       jsonPointers:
-        - /data
+        - /data/ca.crt
+        - /data/tls.crt
+        - /data/tls.key
     - group: admissionregistration.k8s.io
       kind: ValidatingWebhookConfiguration
-      name: <fullname>-admission
       jqPathExpressions:
-      - '.webhooks[]?.clientConfig.caBundle'
+        - '.webhooks[]?.clientConfig.caBundle'
