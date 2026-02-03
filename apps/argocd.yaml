@@ -6,10 +6,17 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/Abeehiltz/k8s-deployment
-    path: argocd
-    targetRevision: HEAD
+  sources:
+    - chart: argo-cd
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision:
+      helm:
+        valueFiles:
+          - $back-repo/argocd/values.yaml
+    - repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: argocd
+      targetRevision: HEAD
+      ref: back-repo
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
