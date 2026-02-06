@@ -2,17 +2,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nfs-argocd-app
+  name: nfs-storage
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/Abeehiltz/k8s-deployment
-    path: storage/nfs
-    targetRevision: HEAD
+  sources:
+    - repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+      chart: csi-driver-nfs
+      targetRevision: 4.13.0
+      helm:
+        valueFiles:
+          - $back-repo/storage/nfs/values.yaml
+    - repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: storage/nfs
+      targetRevision: HEAD
+      ref: back-repo
   destination:
     server: "https://kubernetes.default.svc"
     namespace: storage
   syncPolicy: 
     automated:
       enabled: false
+
