@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: music
+  namespace: argocd
+spec:
+  project: default
+  source:
+      repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: music
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: music
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
