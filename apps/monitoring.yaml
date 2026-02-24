@@ -13,6 +13,12 @@ spec:
       helm:
         valueFiles:
           - $back-repo/monitoring/values.yaml
+    - repoURL: oci://ghcr.io/grafana/helm-charts/grafana-operator
+      path: .
+      targetRevision: "5.22.0"
+      helm:
+        valueFiles:
+          - $back-repo/monitoring/values-grafana-operator.yaml
     - repoURL: https://github.com/Abeehiltz/k8s-deployment
       path: monitoring
       targetRevision: HEAD
