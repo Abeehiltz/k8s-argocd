@@ -9,7 +9,7 @@ spec:
   sources:
     - repoURL: oci://ghcr.io/victoriametrics/helm-charts/victoria-metrics-k8s-stack
       path: .
-      targetRevision: "0.72.2"
+      targetRevision: "0.72.6"
       helm:
         valueFiles:
           - $back-repo/monitoring/values.yaml
