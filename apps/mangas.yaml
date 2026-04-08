@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mangas
+  namespace: argocd
+spec:
+  project: default
+  source:
+      repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: mangas
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: mangas
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+
+
