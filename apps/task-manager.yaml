@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: task-manager
+  namespace: argocd
+spec:
+  project: default
+  source:
+      repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: task-manager
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: task-manager
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+
+
