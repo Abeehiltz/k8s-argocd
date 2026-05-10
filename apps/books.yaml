@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: books
+  namespace: argocd
+spec:
+  project: default
+  source:
+      repoURL: https://github.com/Abeehiltz/k8s-deployment
+      path: books
+      targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: books
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+
+
