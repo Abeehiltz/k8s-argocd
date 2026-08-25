@@ -15,7 +15,7 @@ spec:
           - $back-repo/monitoring/values.yaml
     - repoURL: oci://ghcr.io/grafana/helm-charts/grafana-operator
       path: .
-      targetRevision: "5.23.0"
+      targetRevision: "5.25.0"
       helm:
         valueFiles:
           - $back-repo/monitoring/grafana/values-grafana-operator.yaml
