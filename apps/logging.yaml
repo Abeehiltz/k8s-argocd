@@ -9,7 +9,7 @@ spec:
   sources:
     - repoURL: https://helm.vector.dev
       chart: vector
-      targetRevision: "0.56.0"
+      targetRevision: "0.58.0"
       helm:
         valueFiles:
           - $back-repo/monitoring/logs/values-vector.yaml
