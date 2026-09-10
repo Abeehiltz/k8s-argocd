@@ -19,7 +19,7 @@ spec:
       ref: back-repo
     - repoURL: https://cloudnative-pg.github.io/charts
       chart: plugin-barman-cloud
-      targetRevision: "0.7.0"
+      targetRevision: "0.8.0"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cnpg-system
